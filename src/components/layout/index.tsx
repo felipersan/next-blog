@@ -1,4 +1,5 @@
 import { ReactNode } from "react"
+import NavBar from "../global/NavBar"
 
 interface props {
     children: ReactNode
@@ -6,8 +7,8 @@ interface props {
 
 export default function Layout({children}:props){
     return(
-        <div>
-            <p>Layout</p>
+        <div className="min-h-screen bg-bg-primary flex">
+            <NavBar/>
             <main>
                 {children}
             </main>
