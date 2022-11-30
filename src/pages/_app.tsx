@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
-  if (router.pathname !== "/signIn" && router.pathname !== "/signUp") {
+  if (router.pathname !== "/login" && router.pathname !== "/cadastro") {
     return (
       <Layout>
         <Component {...pageProps} />
