@@ -14,7 +14,8 @@ module.exports = {
           secondary: 'rgba(0,0,0,0.8)'
         },
         text: {
-          primary: "#fff",
+          secondary: '#A5A5A5',
+          primary: "#fff"
         },
         emphasis:{
           primary: '#6EEB83'
