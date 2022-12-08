@@ -46,7 +46,7 @@ export default function NavBar() {
       </main>
       <main className="flex fixed bottom-0 mb-7 h-16 w-screen ">
         <div
-          className="h-full bg-transparent border-solid border-2 border-emphasis-primary  w-full ml-7 flex  justify-around mr-7 sm:hidden align-middle"
+          className="h-full bg-transparent border-solid border-2 border-emphasis-primary  w-full ml-7 flex  justify-around mr-7 sm:hidden align-middle backdrop-blur-xl"
           id={'menuMobile'}
         >
           <div className=" flex flex-col items-center align-middle justify-center">
