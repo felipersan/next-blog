@@ -46,25 +46,27 @@ export default function NavBar() {
       </main>
       <main className="flex fixed bottom-0 mb-7 h-16 w-screen ">
         <div
-          className="h-full bg-transparent border-solid border-2 border-emphasis-primary p-2.5 w-full ml-7 flex  justify-around mr-7 sm:hidden"
+          className="h-full bg-transparent border-solid border-2 border-emphasis-primary  w-full ml-7 flex  justify-around mr-7 sm:hidden align-middle"
           id={'menuMobile'}
         >
-          <div className="bg-emphasis-primary h-10 w-10 rounded-full flex items-center justify-center ">
-            <Link href="/">
-              <span className="text-2xl text-white">P</span>
-            </Link>
+          <div className=" flex flex-col items-center align-middle justify-center">
+            <div className="bg-emphasis-primary h-10 w-10 rounded-full flex items-center justify-center ">
+              <Link href="/">
+                <span className="text-2xl text-white">P</span>
+              </Link>
+            </div>
           </div>
           {menu.map((row: any, key: number) => (
             <Link
               key={key}
-              className=" w-10 h-10"
+              className=" flex flex-col items-center align-middle justify-center"
               href={`/${row?.title?.toLowerCase()}`}
             >
               {row?.icon}
             </Link>
           ))}
           <Link
-            className="cursor-pointer flex flex-col items-center"
+            className="cursor-pointer flex flex-col items-center align-middle justify-center"
             href={`/create`}
           >
             <AddIcon color={'#6EEB83'} size={30} />
