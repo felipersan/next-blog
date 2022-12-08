@@ -35,7 +35,7 @@ export default function CardPost({ data }: IProps) {
         </h3>
         <h3 className="text-white text-base font-normal">{data?.owner}</h3>
       </div>
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3">
         {data?.interests?.map((row: string, key: number) => (
           <ThemeCard name={row} key={key} />
         ))}
