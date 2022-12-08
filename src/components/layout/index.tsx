@@ -1,17 +1,15 @@
-import { ReactNode } from "react"
-import NavBar from "../global/NavBar"
+import { ReactNode } from 'react'
+import NavBar from '../global/NavBar'
 
 interface props {
-    children: ReactNode
+  children: ReactNode
 }
 
-export default function Layout({children}:props){
-    return(
-        <div className="min-h-screen bg-bg-primary flex">
-            <NavBar/>
-            <main>
-                {children}
-            </main>
-        </div>
-    )
+export default function Layout({ children }: props) {
+  return (
+    <div className="min-h-screen bg-bg-primary flex relative">
+      <NavBar />
+      <main>{children}</main>
+    </div>
+  )
 }
