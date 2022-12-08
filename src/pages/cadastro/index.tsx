@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import MetaHead from '../../components/global/MetaHead'
 import Button from '../../components/UI/Button'
 import Input from '../../components/UI/Input'
@@ -34,12 +35,12 @@ export default function SignUp() {
                 <p className="text-white text-xl font-semibold">
                   Já possui uma conta ?
                 </p>
-                <a
+                <Link
                   href="/login"
                   className="text-emphasis-primary font-bold cursor-pointer"
                 >
                   FAZER LOGIN
-                </a>
+                </Link>
               </div>
             </div>
           </form>
