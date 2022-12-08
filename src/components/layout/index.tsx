@@ -9,7 +9,7 @@ export default function Layout({ children }: props) {
   return (
     <div className="min-h-screen bg-bg-primary flex min-w-screnn relative">
       <NavBar />
-      <main>{children}</main>
+      <main className="sm:ml-28">{children}</main>
     </div>
   )
 }

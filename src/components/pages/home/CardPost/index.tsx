@@ -42,6 +42,34 @@ export default function CardPost({ data }: IProps) {
           ))}
         </div>
       </div>
+      <div className="hidden sm:flex">
+        <div className="flex flex-col gap-10">
+          <p className="text-white text-3xl font-bold font-mono flex text-right ">
+            {moment(data?.createdAt).format('DD').toUpperCase()}
+            <br />
+            {moment(data?.createdAt).format('MMM').toUpperCase()}
+          </p>
+          <h3 className="text-white font-mono font-normal text-base -rotate-90">
+            {data?.owner}
+          </h3>
+        </div>
+        <div className="flex flex-col gap-5">
+          <h2 className="text-4xl font-bold text-emphasis-primary font-mono">
+            {data?.title}
+          </h2>
+          <p className="text-white text-xl font-medium ">
+            {data?.decription.substring(0, 450)}{' '}
+            <Link href={`/post/${data?.id}`} className="text-emphasis-primary">
+              ...ler mais
+            </Link>
+          </p>
+          <div className="flex gap-5">
+            {data?.interests?.map((row: string, key: number) => (
+              <ThemeCard name={row} key={key} />
+            ))}
+          </div>
+        </div>
+      </div>
     </>
   )
 }

@@ -32,13 +32,13 @@ const post: Array<CardPostProps> = [
 
 export default function Home() {
   return (
-    <div className="w-screen pl-7 pr-7 pb-32 pt-16 min-h-screen">
+    <div className="w-full pl-7 pr-7 pb-32 pt-16 min-h-screen sm:p-28">
       <div className="w-full flex justify-center">
         <p className="text-white text-2xl font-bold flex flex-col gap-2 align-middle justify-center font-mono">
           Últimos Posts <div className="w-20 h-1 bg-emphasis-primary"></div>
         </p>
       </div>
-      <div className="mt-10">
+      <div className="mt-10 sm:flex sm:flex-col sm:gap-28">
         {post.map((row: CardPostProps, index: number) => (
           <>
             <CardPost data={row} key={row.id} />

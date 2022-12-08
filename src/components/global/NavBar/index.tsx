@@ -8,7 +8,7 @@ export default function NavBar() {
   ]
   return (
     <>
-      <main className="hidden md:flex fixed p-10 min-h-screen border-solid border-r-2 border-emphasis-primary items-center justify-center flex-col gap-y-10">
+      <main className="hidden sm:flex fixed p-10 min-h-screen border-solid border-r-2 border-emphasis-primary items-center justify-center flex-col gap-y-10">
         <div className="bg-emphasis-primary h-16 w-16 rounded-full flex items-center justify-center">
           <Link href="/">
             <span className="text-4xl text-white">P</span>
