@@ -49,3 +49,7 @@ export default function SignUp() {
     </>
   )
 }
+
+SignUp.getInitialProps = async (ctx: any) => {
+  return { stars: 0 }
+}
