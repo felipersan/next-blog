@@ -43,7 +43,7 @@ export default function Home() {
           <>
             <CardPost data={row} key={row.id} />
             {index < post.length - 1 && (
-              <div className="w-full h-px bg-emphasis-primary mt-10 mb-10" />
+              <div className="sm:hidden w-full h-px bg-emphasis-primary mt-10 mb-10" />
             )}
           </>
         ))}

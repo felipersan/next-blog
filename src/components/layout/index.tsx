@@ -7,7 +7,7 @@ interface props {
 
 export default function Layout({ children }: props) {
   return (
-    <div className="min-h-screen bg-bg-primary flex relative">
+    <div className="min-h-screen bg-bg-primary flex min-w-screnn relative">
       <NavBar />
       <main>{children}</main>
     </div>
