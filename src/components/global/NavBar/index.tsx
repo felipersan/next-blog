@@ -20,30 +20,27 @@ export default function NavBar() {
         <nav>
           <ul className="flex flex-col gap-y-10">
             {menu.map((row: any, key: number) => (
-              <li key={key}>
-                <Link
-                  className="cursor-pointer flex flex-col items-center"
-                  href={`/${row?.title?.toLowerCase()}`}
-                >
-                  {row?.icon}
-                  <p className="text-white">{row?.title}</p>
-                </Link>
-              </li>
+              <Link
+                key={key}
+                className="cursor-pointer flex flex-col items-center"
+                href={`/${row?.title?.toLowerCase()}`}
+              >
+                {row?.icon}
+                <p className="text-white">{row?.title}</p>
+              </Link>
             ))}
           </ul>
         </nav>
         <nav className="mt-20">
           <ul className="flex flex-col gap-y-10">
-            <li key={'create component'}>
-              <Link
-                className="cursor-pointer flex flex-col items-center"
-                href={`/create`}
-              >
-                <AddIcon color={'#6EEB83'} size={30} />
+            <Link
+              className="cursor-pointer flex flex-col items-center"
+              href={`/create`}
+            >
+              <AddIcon color={'#6EEB83'} size={30} />
 
-                <p className="text-white">Create</p>
-              </Link>
-            </li>
+              <p className="text-white">Create</p>
+            </Link>
           </ul>
         </nav>
       </main>
@@ -58,7 +55,11 @@ export default function NavBar() {
             </Link>
           </div>
           {menu.map((row: any, key: number) => (
-            <Link className=" w-10 h-10" href={`/${row?.title?.toLowerCase()}`}>
+            <Link
+              key={key}
+              className=" w-10 h-10"
+              href={`/${row?.title?.toLowerCase()}`}
+            >
               {row?.icon}
             </Link>
           ))}
