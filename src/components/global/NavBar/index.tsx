@@ -44,7 +44,7 @@ export default function NavBar() {
           </ul>
         </nav>
       </main>
-      <main className="flex absolute bottom-0 mb-7 h-16 w-screen ">
+      <main className="flex fixed bottom-0 mb-7 h-16 w-screen ">
         <div
           className="h-full bg-transparent border-solid border-2 border-emphasis-primary p-2.5 w-full ml-7 flex  justify-around mr-7 sm:hidden"
           id={'menuMobile'}
