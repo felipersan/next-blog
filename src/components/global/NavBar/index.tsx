@@ -1,10 +1,20 @@
 import Link from 'next/link'
-import { AddIcon, SearchIcon, TrendIcon } from '../../../../public/assets'
+import {
+  AddIcon,
+  LeaveIcon,
+  SearchIcon,
+  TrendIcon
+} from '../../../../public/assets'
 
 export default function NavBar() {
   const menu = [
     { icon: <SearchIcon color={'#6EEB83'} size={30} />, title: 'Search' },
     { icon: <TrendIcon color={'#6EEB83'} size={30} />, title: 'Trending' }
+  ]
+
+  const menuMobile = [
+    { icon: <SearchIcon color={'#6EEB83'} size={20} />, title: 'Search' },
+    { icon: <TrendIcon color={'#6EEB83'} size={20} />, title: 'Trending' }
   ]
   return (
     <>
@@ -14,6 +24,13 @@ export default function NavBar() {
             <span className="text-4xl text-white">P</span>
           </Link>
         </div>
+        <Link
+          className="cursor-pointer flex flex-col items-center"
+          href={`/login`}
+        >
+          <LeaveIcon color={'#6EEB83'} size={30} />
+          <p className="text-white">Sair</p>
+        </Link>
         <nav>
           <ul className="flex flex-col gap-y-10">
             {menu.map((row: any, key: number) => (
@@ -47,13 +64,21 @@ export default function NavBar() {
           id={'menuMobile'}
         >
           <div className=" flex flex-col items-center align-middle justify-center">
-            <div className="bg-emphasis-primary h-10 w-10 rounded-full flex items-center justify-center ">
+            <div className="bg-emphasis-primary h-8 w-8 rounded-full flex items-center justify-center ">
               <Link href="/">
-                <span className="text-2xl text-white">P</span>
+                <span className="text-1xl text-white">P</span>
               </Link>
             </div>
           </div>
-          {menu.map((row: any, key: number) => (
+          <div className=" flex flex-col items-center align-middle justify-center">
+            <Link
+              className="cursor-pointer flex flex-col items-center"
+              href={`/login`}
+            >
+              <LeaveIcon color={'#6EEB83'} size={20} />
+            </Link>
+          </div>
+          {menuMobile.map((row: any, key: number) => (
             <Link
               key={key}
               className=" flex flex-col items-center align-middle justify-center"
@@ -66,7 +91,7 @@ export default function NavBar() {
             className="cursor-pointer flex flex-col items-center align-middle justify-center"
             href={`/create`}
           >
-            <AddIcon color={'#6EEB83'} size={30} />
+            <AddIcon color={'#6EEB83'} size={20} />
           </Link>
         </div>
       </main>
