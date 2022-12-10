@@ -20,10 +20,10 @@ export default function CardPost({ data }: IProps) {
   return (
     <>
       <div className="flex sm:hidden w-full  flex-col gap-5">
-        <h2 className=" text-emphasis-primary font-normal text-2xl font-mono">
+        <h2 className=" text-emphasis-primary font-normal text-xl font-mono">
           {data?.title}
         </h2>
-        <p className="text-white text-1xl font-normal font-mono text-justify">
+        <p className="text-white text-xs font-normal font-mono text-justify">
           {data?.decription?.substring(0, 250)}
           <Link href={'/post/1'} className="text-emphasis-primary">
             {' '}
@@ -42,6 +42,7 @@ export default function CardPost({ data }: IProps) {
           ))}
         </div>
       </div>
+
       <div className="hidden sm:flex">
         <div className="flex flex-col gap-10">
           <p className="text-white text-3xl font-bold font-mono flex text-right ">
