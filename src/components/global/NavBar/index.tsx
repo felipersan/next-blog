@@ -31,6 +31,10 @@ export default function NavBar() {
     closeSearchBar.cancel()
   }, [search]);
 
+  useEffect(()=>{
+    setShowImportSearch(false)
+  },[router.pathname])
+
   const emptyDebounce = useDebouncedCallback((value) => {
     if (value.length === 0){
       router.push('/')
@@ -44,6 +48,9 @@ export default function NavBar() {
 
   function handleSearchPost(e?: any) {
     e?.preventDefault();
+    if (router?.query?.search === ''){
+      router.push('/')
+    }
     router.push(`/?search=${search}`);
   }
 

@@ -11,14 +11,14 @@ export default function SignUp() {
     <>
       <MetaHead title="Login" description="Página de cadastro do site" />
       <main className="min-w-screen min-h-screen bg-bg-secondary flex flex-col md:flex-row gap-10 md:gap-0 pb-10 md:pb-o">
-        <div className="h-60 md:min-h-screen bg-[url('/images/Side-Background.png')] w-auto md:w-96 bg-bg-primary bg-no-repeat bg-center bg-cover border-solid border-b-4 md:border-r-4 border-emphasis-primary flex align-middle justify-center">
+        <div className="fixed h-60 md:min-h-screen bg-[url('/images/Side-Background.png')] w-auto md:w-96 bg-bg-primary bg-no-repeat bg-center bg-cover border-solid border-b-4 md:border-r-4 border-emphasis-primary flex align-middle justify-center">
           <span className=" flex justify-center align-middle min-h-full">
             <h1 className="text-4xl sm:text-5xl text-white flex md:-rotate-90  top-0 m-auto font-bold	font-mono">
               LOGIN
             </h1>
           </span>
         </div>
-        <div className="w-full pl-10 pr-10 md:pl-20 md:pr-20 justify-center align-middle flex flex-col">
+        <div className="w-full pl-10 pr-10 md:pl-[30rem] md:pr-20 justify-center align-middle flex flex-col">
           <h2 className=" text-2xl sm:text-3xl text-text-primary font-bold font-mono">
             Bem Vindo
           </h2>
