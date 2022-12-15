@@ -1,9 +1,12 @@
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { type } from 'os'
 import MetaHead from '../../components/global/MetaHead'
 import Button from '../../components/UI/Button'
 import Input from '../../components/UI/Input'
 
 export default function SignUp() {
+  const router = useRouter()
   return (
     <>
       <MetaHead title="Login" description="Página de cadastro do site" />
@@ -27,7 +30,12 @@ export default function SignUp() {
             <Input placeholder="Senha" typeBtn="password" />
             <div className="flex justify-between align-middle flex-col sm:flex-row gap-5 sm:gap-0">
               <div className="w-auto sm:w-56" id={'divButtonHome'}>
-                <Button>
+                <Button
+                onClick={()=>{
+                  console.log('clicou')
+                  router.push('/')
+                }}
+                >
                   <p className="font-bold text-lg font-mono">ENTRAR</p>
                 </Button>
               </div>

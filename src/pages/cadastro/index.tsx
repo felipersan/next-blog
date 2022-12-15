@@ -1,9 +1,11 @@
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import MetaHead from '../../components/global/MetaHead'
 import Button from '../../components/UI/Button'
 import Input from '../../components/UI/Input'
 
 export default function SignUp() {
+  const router = useRouter()
   return (
     <>
       <MetaHead title="Cadastro" description="Página de cadastro do site" />
@@ -29,7 +31,11 @@ export default function SignUp() {
             <Input placeholder="Confirmação de Senha" typeBtn="password" />
             <div className="flex justify-between align-middle flex-col sm:flex-row gap-5 sm:gap-0">
               <div className="w-auto sm:w-56" id={'divButtonHome'}>
-                <Button>
+                <Button
+                onClick={()=>{
+                  router.push('/')
+                }}
+                >
                   <p className="font-bold text-lg font-mono">INSCREVER-SE</p>
                 </Button>
               </div>
@@ -38,7 +44,7 @@ export default function SignUp() {
                   Já possui uma conta ?
                 </p>
                 <Link
-                  href="/cadastro"
+                  href="/login"
                   className="text-emphasis-primary font-bold cursor-pointer font-mono text-base"
                 >
                   FAZER LOGIN

@@ -1,5 +1,7 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import { useDebouncedCallback } from "use-debounce";
 import {
   AddIcon,
   LeaveIcon,
@@ -13,14 +15,30 @@ export default function NavBar() {
   const [showInputSearch, setShowImportSearch] = useState<boolean>(false);
 
   const menu = [
-    { icon: <SearchIcon color={"#6EEB83"} size={30} />, title: "Search" },
+    { icon: <SearchIcon color={"#6EEB83"} size={30} />, title: "Pesquisar" },
     { icon: <TrendIcon color={"#6EEB83"} size={30} />, title: "Populares" },
   ];
 
   const menuMobile = [
-    { icon: <SearchIcon color={"#6EEB83"} size={20} />, title: "Search" },
+    { icon: <SearchIcon color={"#6EEB83"} size={20} />, title: "Pesquisar" },
     { icon: <TrendIcon color={"#6EEB83"} size={20} />, title: "Populares" },
   ];
+
+  const router = useRouter();
+
+  useEffect(() => {
+    emptyDebounce(search);
+  }, [search]);
+
+  const emptyDebounce = useDebouncedCallback((value) => {
+    console.log(value);
+  }, 500);
+
+  function handleSearchPost(e?: any) {
+    e?.preventDefault();
+    router.push(`/?${search}`);
+  }
+
   return (
     <>
       <main className="hidden sm:flex fixed p-10 min-h-screen border-solid border-r-2 border-emphasis-primary items-center justify-center flex-col gap-y-10 ">
@@ -39,7 +57,7 @@ export default function NavBar() {
         <nav>
           <ul className="flex flex-col gap-y-10 relative">
             {menu.map((row: any, key: number) => {
-              if (row?.title !== "Search") {
+              if (row?.title !== "Pesquisar") {
                 return (
                   <Link
                     key={key}
@@ -63,11 +81,13 @@ export default function NavBar() {
                       {row?.icon}
                       <p className="text-white">{row?.title}</p>
                     </button>
-                    <div className={` ${
-                          showInputSearch
-                            ? " left-10 opacity-1 ease-in duration-300"
-                            : " -left-inputSideBar opacity-1 ease-in duration-300"
-                        } flex flex-row gap-3 z-10 w-[25rem] fixed top-1.5 ml-[7.5rem]`}>
+                    <div
+                      className={` ${
+                        showInputSearch
+                          ? " left-10 opacity-1 ease-in duration-300"
+                          : " -left-inputSideBar opacity-1 ease-in duration-300"
+                      } flex flex-row gap-3 z-10 w-[25rem] fixed top-1.5 ml-[7.5rem]`}
+                    >
                       <div
                         key={key}
                         className={`${
@@ -76,17 +96,26 @@ export default function NavBar() {
                             : "  -left-inputSideBar opacity-0 ease-in duration-300"
                         }   backdrop-blur-xl flex-1`}
                       >
-                        <Input
-                          placeholder="Ex: Next Js"
-                          typeBtn="text"
-                          onChange={(
-                            e: React.ChangeEvent<HTMLInputElement>
-                          ) => {
-                            setSearch(e?.target?.value);
-                          }}
-                        />
+                        <form
+                        onSubmit={handleSearchPost}
+                        >
+                          <Input
+                            placeholder="Ex: Next Js"
+                            typeBtn="text"
+                            onChange={(
+                              e: React.ChangeEvent<HTMLInputElement>
+                            ) => {
+                              setSearch(e?.target?.value);
+                            }}
+                          />
+                        </form>
                       </div>
-                      <button className="bg-emphasis-primary w-20 h-14 flex flex-col items-center align-middle justify-center cursor-pointer hover:opacity-95">
+                      <button
+                        onClick={() => {
+                          handleSearchPost();
+                        }}
+                        className="bg-emphasis-primary w-20 h-14 flex flex-col items-center align-middle justify-center cursor-pointer hover:opacity-95"
+                      >
                         <SearchIcon color={"#000"} size={20} />
                       </button>
                     </div>
@@ -100,11 +129,11 @@ export default function NavBar() {
           <ul className="flex flex-col gap-y-10">
             <Link
               className="cursor-pointer flex flex-col items-center"
-              href={`/create`}
+              href={`/criar`}
             >
               <AddIcon color={"#6EEB83"} size={30} />
 
-              <p className="text-white">Create</p>
+              <p className="text-white">Criar</p>
             </Link>
           </ul>
         </nav>
@@ -116,18 +145,25 @@ export default function NavBar() {
             showInputSearch
               ? "bottom-3 opacity-1 ease-in duration-300"
               : "bottom-0 opacity-0 ease-in duration-300"
-          } fixed mb-20 px-3 flex w-full backdrop-blur-xl gap-3`}
+          } fixed mb-20 px-3 flex w-full  gap-3`}
         >
-          <Input
-            placeholder="Ex: Next Js"
-            typeBtn="text"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setSearch(e?.target?.value);
-            }}
-          />
-          <div className="bg-emphasis-primary flex-auto w-20 h-14 flex flex-col items-center align-middle justify-center">
-            <SearchIcon color={"#000"} size={20} />
+          <div className="backdrop-blur-xl w-full">
+            <Input
+              placeholder="Ex: Next Js"
+              typeBtn="text"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setSearch(e?.target?.value);
+              }}
+            />
           </div>
+          <button
+            onClick={() => {
+              handleSearchPost();
+            }}
+            className="bg-emphasis-primary flex-auto w-20 h-14 flex flex-col items-center align-middle justify-center"
+          >
+            <SearchIcon color={"#000"} size={20} />
+          </button>
         </div>
         <div
           className="h-full bg-transparent border-solid border-2 border-emphasis-primary  w-full ml-3 flex  justify-around mr-3 sm:hidden align-middle backdrop-blur-xl"
@@ -149,7 +185,7 @@ export default function NavBar() {
             </Link>
           </div>
           {menuMobile.map((row: any, key: number) => {
-            if (row.title !== "Search") {
+            if (row.title !== "Pesquisar") {
               return (
                 <Link
                   key={key}
@@ -175,7 +211,7 @@ export default function NavBar() {
           })}
           <Link
             className="cursor-pointer flex flex-col items-center align-middle justify-center"
-            href={`/create`}
+            href={`/criar`}
           >
             <AddIcon color={"#6EEB83"} size={20} />
           </Link>
