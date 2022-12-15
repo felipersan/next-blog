@@ -43,17 +43,18 @@ export default function CardPost({ data }: IProps) {
         </div>
       </div>
 
-      <div className="hidden sm:flex">
-        <div className="flex flex-col gap-10">
-          <p className="text-white text-3xl font-bold font-mono flex text-right ">
+      <div className="hidden sm:flex gap-5">
+        <div className="flex flex-col justify-end  gap-">
+          <p className="text-white text-3xl font-bold font-mono flex text-right w-auto">
             {moment(data?.createdAt).format('DD').toUpperCase()}
             <br />
             {moment(data?.createdAt).format('MMM').toUpperCase()}
           </p>
-          <h3 className="text-white font-mono font-normal text-base -rotate-90">
+          <h3 className="text-white font-mono font-normal text-base">
             {data?.owner}
           </h3>
         </div>
+
         <div className="flex flex-col gap-5">
           <h2 className="text-2xl font-bold text-emphasis-primary font-mono">
             {data?.title}

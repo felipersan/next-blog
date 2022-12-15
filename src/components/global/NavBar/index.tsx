@@ -24,19 +24,6 @@ export default function NavBar() {
   return (
     <>
       <main className="hidden sm:flex fixed p-10 min-h-screen border-solid border-r-2 border-emphasis-primary items-center justify-center flex-col gap-y-10 ">
-        <div
-          className={`${
-            showInputSearch ? "flex" : "hidden"
-          } fixed mb-20 w-full pl-3 pr-3 bottom-3 backdrop-blur-xl`}
-        >
-          <Input
-            placeholder="Ex: Next Js"
-            typeBtn="text"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setSearch(e?.target?.value);
-            }}
-          />
-        </div>
         <div className="bg-emphasis-primary h-16 w-16 rounded-full flex items-center justify-center">
           <Link href="/">
             <span className="text-4xl text-white">P</span>
@@ -50,7 +37,7 @@ export default function NavBar() {
           <p className="text-white">Sair</p>
         </Link>
         <nav>
-          <ul className="flex flex-col gap-y-10">
+          <ul className="flex flex-col gap-y-10 relative">
             {menu.map((row: any, key: number) => {
               if (row?.title !== "Search") {
                 return (
@@ -65,14 +52,45 @@ export default function NavBar() {
                 );
               } else {
                 return (
-                  <button
-                    onClick={() => {
-                      setShowImportSearch(!showInputSearch);
-                    }}
-                    className="cursor-pointer flex flex-col items-center"
-                  >
-                    {row?.icon}
-                  </button>
+                  <>
+                    <button
+                      key={key}
+                      onClick={() => {
+                        setShowImportSearch(!showInputSearch);
+                      }}
+                      className="cursor-pointer flex flex-col items-center"
+                    >
+                      {row?.icon}
+                      <p className="text-white">{row?.title}</p>
+                    </button>
+                    <div className={` ${
+                          showInputSearch
+                            ? " left-10 opacity-1 ease-in duration-300"
+                            : " -left-inputSideBar opacity-0 ease-in duration-300"
+                        } flex flex-row gap-3 z-10 w-[25rem] fixed top-1.5 ml-[7.5rem]`}>
+                      <div
+                        key={key}
+                        className={`${
+                          showInputSearch
+                            ? "  left-0 opacity-1 ease-in duration-300"
+                            : "  -left-inputSideBar opacity-0 ease-in duration-300"
+                        }   backdrop-blur-xl flex-1`}
+                      >
+                        <Input
+                          placeholder="Ex: Next Js"
+                          typeBtn="text"
+                          onChange={(
+                            e: React.ChangeEvent<HTMLInputElement>
+                          ) => {
+                            setSearch(e?.target?.value);
+                          }}
+                        />
+                      </div>
+                      <button className="bg-emphasis-primary w-20 h-14 flex flex-col items-center align-middle justify-center cursor-pointer hover:opacity-95">
+                        <SearchIcon color={"#000"} size={20} />
+                      </button>
+                    </div>
+                  </>
                 );
               }
             })}
@@ -144,6 +162,7 @@ export default function NavBar() {
             } else {
               return (
                 <button
+                  key={key}
                   onClick={() => {
                     setShowImportSearch(!showInputSearch);
                   }}

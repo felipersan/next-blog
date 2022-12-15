@@ -23,7 +23,10 @@ module.exports = {
       },
       rotate: {
         270: '270deg'
-      }
+      },
+      inset: {
+        inputSideBar: '600px'
+      },
     }
   },
   plugins: ['tailwindcss', 'postcss-preset-env']

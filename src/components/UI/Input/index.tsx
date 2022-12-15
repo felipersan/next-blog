@@ -13,7 +13,7 @@ export default function Input({placeholder, typeBtn, ...rest}:btnProps){
         autoComplete='off'
         type={typeBtn} 
         placeholder={placeholder}
-        className="w-full h-14 bg-transparent border-solid border border-emphasis-primary text-white caret-emphasis-primary	p-2.5 pl-7 focus:outline-none"
+        className="w-full h-14 bg-transparent border-solid border border-emphasis-primary text-white caret-emphasis-primary	p-2.5 pl-7 focus:outline-none z-10"
         />
     )
 }
