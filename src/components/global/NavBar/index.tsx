@@ -31,7 +31,9 @@ export default function NavBar() {
   }, [search]);
 
   const emptyDebounce = useDebouncedCallback((value) => {
-    console.log(value);
+    if (value.length === 0){
+      router.push('/')
+    }
   }, 500);
 
   function handleSearchPost(e?: any) {
