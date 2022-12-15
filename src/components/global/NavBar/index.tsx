@@ -66,7 +66,7 @@ export default function NavBar() {
                     <div className={` ${
                           showInputSearch
                             ? " left-10 opacity-1 ease-in duration-300"
-                            : " -left-inputSideBar opacity-0 ease-in duration-300"
+                            : " -left-inputSideBar opacity-1 ease-in duration-300"
                         } flex flex-row gap-3 z-10 w-[25rem] fixed top-1.5 ml-[7.5rem]`}>
                       <div
                         key={key}
