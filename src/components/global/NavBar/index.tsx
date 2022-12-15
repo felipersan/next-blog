@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import {
@@ -28,17 +28,23 @@ export default function NavBar() {
 
   useEffect(() => {
     emptyDebounce(search);
+    closeSearchBar.cancel()
   }, [search]);
 
   const emptyDebounce = useDebouncedCallback((value) => {
     if (value.length === 0){
       router.push('/')
+      closeSearchBar()
     }
   }, 500);
 
+  const closeSearchBar = useDebouncedCallback(() => {
+    setShowImportSearch(false)
+  }, 2500);  
+
   function handleSearchPost(e?: any) {
     e?.preventDefault();
-    router.push(`/?${search}`);
+    router.push(`/?search=${search}`);
   }
 
   return (

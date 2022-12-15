@@ -16,7 +16,6 @@ interface IProps {
 }
 
 export default function CardPost({ data }: IProps) {
-  console.log(data)
   return (
     <>
       <div className="flex sm:hidden w-full flex-col gap-5">

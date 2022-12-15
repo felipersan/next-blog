@@ -32,7 +32,6 @@ export default function SignUp() {
               <div className="w-auto sm:w-56" id={'divButtonHome'}>
                 <Button
                 onClick={()=>{
-                  console.log('clicou')
                   router.push('/')
                 }}
                 >
