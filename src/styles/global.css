@@ -2,3 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.toolBarEditor{
+    min-height: 100%;
+}
+
+.rdw-editor-toolbar{
+    width: 100%;
+}
+
